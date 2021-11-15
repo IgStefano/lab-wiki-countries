@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import countries from '../countries.json';
 import { useState } from 'react';
-import ReactCountryFlag from 'react-country-flag';
 
 export default function CountriesList() {
   const [selected, setSelected] = useState('');
@@ -26,7 +25,11 @@ export default function CountriesList() {
                 }}
                 to={currentCountry.cca3}
               >
-                <ReactCountryFlag countryCode={currentCountry.cca2} />{' '}
+                <img
+                  className="me-2"
+                  src={`https://flagcdn.com/28x21/${currentCountry.cca2.toLowerCase()}.png`}
+                  alt={`Flag of ${currentCountry.name.common}`}
+                />{' '}
                 {currentCountry.name.common}
               </Link>
             </div>
